@@ -1,0 +1,28 @@
+- DARK SKY API网址：[点击](https://darksky.net/dev)
+- 用户名：sumin1123@sina.com
+- 登录密码：19791123
+- DARK SKY API的KEY：abddc3d0e6a5b9500d9b97e31df5611b
+
+- 根据网站docs显示：
+调用格式为：https://api.darksky.net/forecast/[key]/[latitude],[longitude]
+那么[key]=abddc3d0e6a5b9500d9b97e31df5611b
+[latitude],[longitude]是城市的ip地址，这需要用户输入
+
+**下面的例子，是经度、纬度固定了，不适合本周的编程**
+```import requests
+r = requests.get('https://api.darksky.net/forecast/abddc3d0e6a5b9500d9b97e31df5611b/42.3601,-71.0589').json()
+print(r)```
+
+- 根据requests.get格式
+r = requests.get（url，params{}，timeout=60）
+```import requests
+api = 'abddc3d0e6a5b9500d9b97e31df5611b'
+lat = 39.92998577808024 # 或者input
+lon = 116.39564503787867 # 或者input
+param = {'lang' : 'zh-tw' , 'units' : 'si' , 'exclude' : 'minutely'} # API里的其他参数就这里设置
+url = "https://api.darksky.net/forecast/%s/%s,%s" % (api, lat, lon)
+r = requests.get(url,params=param).json()
+print(r)```
+
+
+https://darksky.net/dev/docs
